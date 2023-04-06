@@ -1,7 +1,7 @@
-import '../../styles/global.css'
+import '@/styles/global.css'
 import GlassPane from "@/components/GlassPane";
 
-export default function AuthRootLayout({children}) {
+export default function DashboardRootLayout({children}) {
   return (
     <html lang="en">
       <head />
