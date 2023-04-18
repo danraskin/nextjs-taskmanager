@@ -35,3 +35,11 @@ export const createNewProject = async (name) => {
     json: true
   })
 }
+
+export const createNewProject = (name) => {
+  return fetcher({
+    url: "/api/project",
+    method: "POST",
+    body: { name },
+  });
+};
