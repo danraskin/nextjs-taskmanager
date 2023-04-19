@@ -1,4 +1,3 @@
-// signin/page.tsx
 import AuthForm from "@/components/Authform"
 
 export default function Signin() {

@@ -7,9 +7,9 @@ CREATE TABLE "User" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "email" TEXT NOT NULL,
+    "firstName" TEXT NOT NULL,
+    "lastName" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "firstName" TEXT,
-    "lastName" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -19,8 +19,8 @@ CREATE TABLE "Project" (
     "id" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
-    "ownerId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
+    "ownerId" TEXT NOT NULL,
     "description" TEXT,
     "due" TIMESTAMP(3),
     "deleted" BOOLEAN NOT NULL DEFAULT false,
@@ -33,19 +33,15 @@ CREATE TABLE "Task" (
     "id" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
-    "ownerId" TEXT NOT NULL,
-    "projectId" TEXT NOT NULL,
     "status" "TASK_STATUS" NOT NULL DEFAULT 'NOT_STARTED',
     "name" TEXT NOT NULL,
-    "description" TEXT NOT NULL,
+    "ownerId" TEXT NOT NULL,
+    "projectId" TEXT NOT NULL,
     "due" TIMESTAMP(3),
     "deleted" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "Task_pkey" PRIMARY KEY ("id")
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE INDEX "Project_ownerId_id_idx" ON "Project"("ownerId", "id");

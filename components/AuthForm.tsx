@@ -31,14 +31,11 @@ const AuthForm = ({mode}) => {
   const router = useRouter()
 
   const handleSubmit = async (e) => {
-    console.log('handlesubmit')
-
     e.preventDefault()
 
     try {
       if (mode === 'register') {
-        // console.log('bolo')
-        // await register(formState)
+        await register(formState)
         console.log('yolo')
       } else {
         await signin(formState)
@@ -59,7 +56,7 @@ const AuthForm = ({mode}) => {
         <div className="text-center">
           <h2 className="text-3xl mb-2">{content.header}</h2>
           <p className="tex-lg text-black/25">{content.subheader}</p>
-        </div>
+        </div> NO FORM
         <form onSubmit={handleSubmit} className="py-10 w-full">
           {mode === "register" && (
             <div className="flex mb-8 justify-between">
@@ -129,7 +126,7 @@ const AuthForm = ({mode}) => {
               </span>
             </div>
             <div>
-              <Button type="submit" intent="secondary" onClick={(e)=>console.log('onclick')}>
+              <Button type="submit" intent="secondary">
                 {content.buttonText}
               </Button>
             </div>
@@ -142,3 +139,5 @@ const AuthForm = ({mode}) => {
 
 
 export default AuthForm;
+
+
